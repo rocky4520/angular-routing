@@ -1,23 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { ServicesComponent } from './components/services/services.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UsersComponent } from './components/users/users.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
+import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 
 const routes: Routes = [
-  {path:'', component:AdminDashboardComponent,children: [
-    {path:'home', component:HomeComponent},
-    {path:'about', component:AboutComponent},
-    {path:'services', component:ServicesComponent},
-    {path:'contact', component:ContactComponent},
-    {path:'', redirectTo: '/admin/home', pathMatch: 'full'},
-  ]}
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      { path: 'home-admin', component: HomeAdminComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'analytics', component: AnalyticsComponent },
+    ],
+  },
+  { path: '', redirectTo: 'home-admin', pathMatch: 'full' },
+  { path: '**', redirectTo: 'dashboard' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

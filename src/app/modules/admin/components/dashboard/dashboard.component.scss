@@ -1,0 +1,62 @@
+// Variables for colors and dimensions
+$header-height: 60px;
+$sidebar-width: 270px;
+
+$color-header-bg: #2c3e50;
+$color-sidebar-bg: #34495e;
+$color-content-bg: #f4f6f8;
+$color-text: #ffffff;
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+
+  .header {
+    height: $header-height;
+    background-color: $color-header-bg;
+    color: black;
+    // padding: 0 20px;
+    // display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+
+    .sidebar {
+      width: $sidebar-width;
+      background-color: $color-sidebar-bg;
+      color: $color-text;
+      // padding: 20px;
+      overflow-y: auto;
+    }
+
+    .content {
+      flex: 1;
+      // padding: 20px;
+      background-color: $color-content-bg;
+      overflow-y: auto;
+    }
+  }
+
+  // Responsive layout
+  // @media (max-width: 768px) {
+  //   .body {
+  //     flex-direction: column;
+
+  //     .sidebar {
+  //       display: none;
+  //     }
+
+  //     .content {
+  //       padding: 10px;
+  //     }
+  //   }
+  // }
+}

@@ -23,7 +23,7 @@ loginForm = new FormGroup({
 
   ngOnInit(): void{
     if(this.auth.isLoggedIn()) {
-      this.router.navigate(['admin'])
+      this.router.navigate(['user'])
     }
   }
 
@@ -31,7 +31,7 @@ loginForm = new FormGroup({
     if(this.loginForm.valid){
       this.auth.login(this.loginForm.value).subscribe(
         (result) => {
-          this.router.navigate(['admin'])
+          this.router.navigate(['user'])
         },
         (err: Error) => {
           alert(err.message)

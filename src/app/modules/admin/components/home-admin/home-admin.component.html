@@ -1,0 +1,38 @@
+<div class="content dashboard-container">
+      <h1 class="page-title">Dashboard</h1>
+
+      <div class="stat-cards">
+        <div *ngFor="let card of statCards" class="stat-card" [style.background-color]="card.color">
+          <div class="card-icon">{{ card.icon }}</div>
+          <div class="card-content">
+            <h3 class="card-title">{{ card.title }}</h3>
+            <p class="card-value">{{ card.value }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="chart-container">
+          <h2>Recent Activity</h2>
+          <div class="chart-placeholder">
+            <p>Chart will be displayed here</p>
+          </div>
+        </div>
+
+        <div class="recent-users">
+          <h2>Recent Users</h2>
+          <div class="user-list">
+            <div *ngFor="let user of recentUsers" class="user-item">
+              <img [src]="user.avatar" alt="User Avatar" class="user-avatar" />
+              <div class="user-info">
+                <h4>{{ user.username }}</h4>
+                <p>{{ user.email }}</p>
+              </div>
+              <span class="user-status" [class.active]="user.isActive">
+                {{ user.isActive ? 'Active' : 'Inactive' }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
